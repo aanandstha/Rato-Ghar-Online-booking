@@ -1,147 +1,28 @@
-WIL - Project Proposal
+Problem Title:
 Rato Ghar Online Ordering
-Project Type:
-Web Application (Full Stack)
-Project Duration:
-12 Weeks
-Team Size:
-3-5 Students
-1. Executive Summary
-The food and restaurant industry is rapidly adopting digital solutions to enhance customer convenience and streamline operations. Traditional ordering methods such as phone calls or in-person orders can lead to inefficiencies, order errors, and limited scalability.
-Customers increasingly expect seamless online ordering experiences, including browsing menus, customizing orders, and making secure payments. At the same time, restaurants require efficient systems to manage orders, track transactions, and improve operational workflows.
-This project proposes the development of the Rato Ghar Online Ordering Platform, a web-based application that enables customers to browse menus, place orders, and make payments online, while allowing restaurant staff to manage orders efficiently.
-The system will provide a smooth user experience, accurate order handling, and structured backend management.
-The project simulates the development of a real-world e-commerce solution and provides students with hands-on experience across the full Software Development Lifecycle (SDLC), including discovery, requirements analysis, system design, development, testing, and deployment.
-2. Industry Context
-The e-commerce and food delivery sectors have experienced significant growth, driven by increasing consumer demand for convenience and digital services. Online food ordering platforms are now essential for restaurants to remain competitive and expand their customer reach.
-Key challenges include:
-Inefficient manual ordering processes
-Order inaccuracies and miscommunication
-Lack of integrated payment systems
-Limited visibility into order status and history
-Modern platforms address these challenges through digital ordering systems, secure payment integration, and real-time order management. However, many small to mid-sized restaurants require tailored solutions that are simple, cost-effective, and easy to manage.
-This project enables students to design a practical E-commerce application that focuses on food ordering workflows, payment integration, and database design.
-3. Project Objectives
-The objective of this project is to design and develop a prototype system that enables online food ordering and order management.
-Students will:
-analyse challenges in restaurant ordering and customer experience
-define system requirements for a food ordering platform
-design and implement a full-stack web application
-develop features for menu browsing and order placement
-implement payment integration workflows (simulated or real)
-design database structures for orders and transactions
-deploy a working prototype system
-The project also aims to build competencies in e-commerce development, payment systems, and scalable backend design.
-4. Student Learning Outcomes
-Students participating in this project will gain experience in:
-Problem Analysis
- Understanding e-commerce and food service challenges and translating them into digital solutions.
-Software Engineering Practice
-Developing a full-stack application using React, Node.js, and PostgreSQL.
-Food Ordering Systems
-Designing workflows for menu browsing, cart management, and order processing.
-Payment Integration
-Implementing secure payment flows (simulated or API-based).
-Database Design
-Structuring relational databases for products, orders, and transactions.
-Team Collaboration
-Working in agile teams using version control and iterative development.
-System Design and Deployment
-Designing scalable architectures and deploying a functional application.
-5. Project Scope
-The project will focus on developing a functional web-based prototype that enables customers to order food online and allows restaurant staff to manage orders.
-Core Features
-User Accounts
-Customers can register and log in
-Manage profiles and order history
-Menu Management
-Display food items with descriptions, pricing, and categories
-Allow customization options (e.g., add-ons, preferences)
-Shopping Cart
-Add, update, and remove items
-Calculate total price dynamically
-Order Placement
-Submit orders with delivery or pickup options
-Capture customer details and order instructions
-Payment Integration
-Simulate or integrate payment gateway (e.g., Stripe)
-Handle transaction status
-Order Management (CRUD)
-Track order status (pending, confirmed, completed)
-Allow staff to manage incoming orders
-Dashboard
-Customers can view order history
-Admins can monitor orders and performance
-Data Storage
-Store users, menu items, orders, and transactions in a relational database
-6. Expected Student Deliverables
-Student teams will produce the following outputs:
-problem analysis report
-software requirements specification (SRS)
-system architecture documentation
-database schema design
-functional web application prototype
-source code repository
-testing documentation
-deployment documentation
-final presentation and demonstration
-7. Project Methodology
-Students will follow a structured development process based on the Software Development Lifecycle (SDLC) and agile practices.
-The project will progress through the following stages:
-Phase
-Description
-Discovery
-Problem research and analysis
-Requirements
-Definition of system requirements
-Design
-System architecture and database design
-Development
-Backend and frontend implementation
-Testing
-System testing and validation
-Deployment
-Deployment of working prototype
-
-
-8. Technology Scope
-Students will develop a web-based solution using modern development frameworks.
-Suggested technologies include:
-Frontend
- Modern JavaScript framework
-Backend
- Server-side framework supporting APIs
-Database
- Relational database system
-Authentication
- Secure user authentication
-Cloud Deployment
- Public cloud hosting environment
-9. Project Timeline
-
-Week
-Activity
-1–2
-Problem research and project planning
-3
-Requirements documentation
-4
-System architecture design
-5
-Database and API design
-6-7
-Backend development
-8-9
-Frontend development
-10
-System integration
-11
-Testing and deployment
-12
-Final demonstration
-
-
-9. Industry Sponsor Information
-Industry Project Provider: Skillup Labs
-Program Contact Name: Nabin Singh 
-Contact Email: wil@skilluplabs.com.au
+Problem Description:
+       Small restaurants like Rato Ghar often rely on traditional ordering methods such as phone calls and in-person service to manage customer orders. These manual processes create frequent problems including order errors, miscommunication between customers and staff, and long wait times during busy periods. There is no centralised system to track orders, manage transactions, or provide customers with a clear view of the menu and pricing.
+Customers increasingly expect to browse menus, customise their orders, and pay securely online without needing to call or visit in person. Without a digital ordering solution, Rato Ghar risks losing customers to competitors who offer more convenient experiences, while also struggling with operational inefficiencies that limit growth.
+Target Users The main users affected by this problem are:
+•	customers who want to order food from Rato Ghar online for delivery or pickup
+•	restaurant staff who need to receive, track, and manage orders efficiently
+Secondary users may include:
+•	restaurant administrators who monitor order history, transactions, and performance
+Current Solutions:
+        Current solutions used by small restaurants include:
+•	phone-based ordering
+•	in-person counter orders
+•	third-party delivery platforms such as Uber Eats and DoorDash
+•	basic point-of-sale systems for in-house transactions
+Why Current Solutions Fail Current solutions often fail small restaurants like Rato Ghar for several reasons:
+•	phone ordering is slow, error-prone, and unavailable during busy periods
+•	third-party platforms charge high commissions of 15–30%, reducing profit margins
+•	third-party platforms offer little control over branding, customer data, or the ordering experience
+•	basic POS systems are not customer-facing and do not support online ordering or payment
+•	none of these options give Rato Ghar an owned, integrated platform that handles menus, orders, payments, and reporting in one place
+Proposed Solution:
+      The proposed solution is the Rato Ghar Online Ordering Platform — a full-stack web application that allows customers to browse the menu, customise and place orders, and make secure payments online. Restaurant staff will be able to manage incoming orders through a real-time dashboard. The platform will be built using React, Node.js, and PostgreSQL, with simulated or real payment gateway integration.
+Australian Market Context:
+     This problem is relevant in Australia because the food service industry is increasingly competitive and digitally driven. Customers in Australian cities expect convenient, app-style ordering experiences. Small ethnic restaurants such as Rato Ghar often lack the resources to build custom digital solutions and rely on expensive third-party platforms. A tailored, owned ordering platform provides a cost-effective and practical alternative suited to the Australian small restaurant market.
+Project Vision:
+         The vision of this project is to give Rato Ghar a simple, reliable, and professional online ordering experience that reduces manual errors, eliminates dependence on third-party platforms, and helps the restaurant serve customers more efficiently.
