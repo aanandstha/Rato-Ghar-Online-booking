@@ -6,7 +6,110 @@ Customers increasingly expect to browse menus, customise their orders, and pay s
 Target Users The main users affected by this problem are:
 •	customers who want to order food from Rato Ghar online for delivery or pickup
 •	restaurant staff who need to receive, track, and manage orders efficiently
-Secondary users may include:
+Secondary users may include:# Problem Title  
+## Rato Ghar Online Ordering
+
+## Problem Description  
+Small restaurants like **Rato Ghar** often rely on traditional ordering methods such as phone calls and in-person service to manage customer orders. These manual processes create frequent problems including:
+- Order errors  
+- Miscommunication between customers and staff  
+- Long wait times during busy periods  
+
+There is no centralised system to:
+- Track orders  
+- Manage transactions  
+- Provide customers with a clear view of the menu and pricing  
+
+Customers increasingly expect to:
+- Browse menus  
+- Customise orders  
+- Pay securely online  
+
+Without a digital ordering solution, Rato Ghar risks:
+- Losing customers to competitors  
+- Facing operational inefficiencies  
+- Limited growth potential  
+
+---
+
+## Target Users  
+
+### Primary Users  
+- Customers who want to order food online (delivery or pickup)  
+- Restaurant staff who manage and track orders  
+
+### Secondary Users  
+- Restaurant administrators monitoring:
+  - Order history  
+  - Transactions  
+  - Business performance  
+
+---
+
+## Current Solutions  
+Small restaurants currently use:
+- Phone-based ordering  
+- In-person counter orders  
+- Third-party platforms (e.g., Uber Eats, DoorDash)  
+- Basic POS systems  
+
+---
+
+## Why Current Solutions Fail  
+- Phone ordering is slow and error-prone  
+- Not available during peak hours  
+- Third-party platforms charge **15–30% commission**  
+- Limited control over branding and customer data  
+- POS systems are not customer-facing  
+- No unified system for orders, payments, and reporting  
+
+---
+
+## Proposed Solution  
+The **Rato Ghar Online Ordering Platform** will be a full-stack web application that enables:
+
+### Customer Features  
+- Browse menu  
+- Customise orders  
+- Place orders online  
+- Make secure payments  
+
+### Staff Features  
+- Real-time order dashboard  
+- Order management system  
+
+### Tech Stack  
+- Frontend: React  
+- Backend: Node.js  
+- Database: PostgreSQL  
+- Payment: Integrated payment gateway (real or simulated)  
+
+---
+
+## Australian Market Context  
+This problem is highly relevant in Australia because:
+- The food industry is increasingly digital  
+- Customers expect app-like ordering experiences  
+- Small ethnic restaurants lack custom tech solutions  
+- Third-party platforms are expensive  
+
+A dedicated platform provides:
+- Cost-effective solution  
+- Full control over operations  
+- Better customer experience  
+
+---
+
+## Project Vision  
+To provide Rato Ghar with a:
+- Simple  
+- Reliable  
+- Professional  
+
+online ordering system that:
+- Reduces manual errors  
+- Removes reliance on third-party platforms  
+- Improves efficiency and customer satisfaction  
 •	restaurant administrators who monitor order history, transactions, and performance
 Current Solutions:
         Current solutions used by small restaurants include:
