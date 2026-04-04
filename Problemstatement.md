@@ -110,22 +110,22 @@ online ordering system that:
 - Reduces manual errors  
 - Removes reliance on third-party platforms  
 - Improves efficiency and customer satisfaction  
-•	restaurant administrators who monitor order history, transactions, and performance
-Current Solutions:
-        Current solutions used by small restaurants include:
+- restaurant administrators who monitor order history, transactions, and performance
+## Current Solutions:
+Current solutions used by small restaurants include:
 •	phone-based ordering
 •	in-person counter orders
 •	third-party delivery platforms such as Uber Eats and DoorDash
 •	basic point-of-sale systems for in-house transactions
-Why Current Solutions Fail Current solutions often fail small restaurants like Rato Ghar for several reasons:
+## Why Current Solutions Fail Current solutions often fail small restaurants like Rato Ghar for several reasons:
 •	phone ordering is slow, error-prone, and unavailable during busy periods
 •	third-party platforms charge high commissions of 15–30%, reducing profit margins
 •	third-party platforms offer little control over branding, customer data, or the ordering experience
 •	basic POS systems are not customer-facing and do not support online ordering or payment
 •	none of these options give Rato Ghar an owned, integrated platform that handles menus, orders, payments, and reporting in one place
-Proposed Solution:
+## Proposed Solution:
       The proposed solution is the Rato Ghar Online Ordering Platform — a full-stack web application that allows customers to browse the menu, customise and place orders, and make secure payments online. Restaurant staff will be able to manage incoming orders through a real-time dashboard. The platform will be built using React, Node.js, and PostgreSQL, with simulated or real payment gateway integration.
-Australian Market Context:
+## Australian Market Context:
      This problem is relevant in Australia because the food service industry is increasingly competitive and digitally driven. Customers in Australian cities expect convenient, app-style ordering experiences. Small ethnic restaurants such as Rato Ghar often lack the resources to build custom digital solutions and rely on expensive third-party platforms. A tailored, owned ordering platform provides a cost-effective and practical alternative suited to the Australian small restaurant market.
-Project Vision:
+## Project Vision:
          The vision of this project is to give Rato Ghar a simple, reliable, and professional online ordering experience that reduces manual errors, eliminates dependence on third-party platforms, and helps the restaurant serve customers more efficiently.
