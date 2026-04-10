@@ -1,12 +1,4 @@
-Problem Title:
-Rato Ghar Online Ordering
-Problem Description:
-       Small restaurants like Rato Ghar often rely on traditional ordering methods such as phone calls and in-person service to manage customer orders. These manual processes create frequent problems including order errors, miscommunication between customers and staff, and long wait times during busy periods. There is no centralised system to track orders, manage transactions, or provide customers with a clear view of the menu and pricing.
-Customers increasingly expect to browse menus, customise their orders, and pay securely online without needing to call or visit in person. Without a digital ordering solution, Rato Ghar risks losing customers to competitors who offer more convenient experiences, while also struggling with operational inefficiencies that limit growth.
-Target Users The main users affected by this problem are:
-•	customers who want to order food from Rato Ghar online for delivery or pickup
-•	restaurant staff who need to receive, track, and manage orders efficiently
-Secondary users may include:# Problem Title  
+
 ## Rato Ghar Online Ordering
 
 ## Problem Description  
