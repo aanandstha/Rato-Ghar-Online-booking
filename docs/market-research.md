@@ -1,117 +1,138 @@
 # Market Research Report
 
 ## Competitor List
-The following are sample competitors and existing solutions relevant to the **International Student Housing Finder** project in the Australian market:
 
-1. **realestate.com.au**
-   - A major Australian property platform with broad rental listings.
-2. **Domain**
-   - Another major Australian platform for rental and property search.
-3. **Flatmates.com.au**
-   - A platform focused on shared accommodation and room rentals.
-4. **Student.com**
-   - A global student accommodation platform with listings in major education cities.
-5. **University accommodation portals / student housing pages**
-   - Institution-specific housing information and partner accommodation listings.
+The following are sample competitors and existing solutions relevant to the **Rato Ghar Online Ordering Platform** in the food delivery and restaurant ordering market:
+
+1. **Uber Eats**  
+   A global food delivery platform offering a wide range of restaurant options.
+
+2. **DoorDash**  
+   A popular food delivery service with strong logistics and tracking features.
+
+3. **Menulog**  
+   An Australian-based food delivery platform connecting users with local restaurants.
+
+4. **Deliveroo**  
+   A food delivery service focusing on fast delivery and premium restaurant partnerships.
+
+5. **Direct Restaurant Ordering Systems (Own Websites / Social Media Orders)**  
+   Many small restaurants rely on their own websites, phone calls, or social media for orders.
+
+---
 
 ## Competitor Feature Comparison
 
-### 1. realestate.com.au
+### 1. Uber Eats
+
 **Features offered:**
-- property search by suburb and price
-- filters for bedrooms, bathrooms, and property type
-- listing images and descriptions
-- map-based browsing
+- restaurant browsing with categories and filters  
+- real-time order tracking  
+- online payment integration  
+- user reviews and ratings  
 
 **Limitations:**
-- designed for the general market, not specifically for students
-- limited focus on student needs such as shared housing suitability or campus travel convenience
-- can be overwhelming for first-time international users
+- high commission fees for restaurants  
+- less control for small businesses over branding and pricing  
+- dependency on third-party delivery system  
 
-### 2. Domain
+---
+
+### 2. DoorDash
+
 **Features offered:**
-- rental listings with search filters
-- suburb-based search
-- map and listing views
-- alerts and saved searches
+- wide restaurant selection  
+- delivery tracking and estimated time  
+- promotions and discounts  
+- secure payment system  
 
 **Limitations:**
-- not tailored for international students
-- assumes some familiarity with suburbs and local housing expectations
-- little student-specific decision support
+- expensive service and delivery fees  
+- not ideal for small restaurants with limited budgets  
+- limited customization for restaurant-specific needs  
 
-### 3. Flatmates.com.au
+---
+
+### 3. Menulog
+
 **Features offered:**
-- shared room and housemate listings
-- budget-friendly accommodation options
-- user profiles and direct messaging
-- filtering by lifestyle and preferences
+- local restaurant listings  
+- search and filtering options  
+- order scheduling  
+- multiple payment options  
 
 **Limitations:**
-- stronger for shared housing than broader student housing decisions
-- listing quality and trust can vary
-- limited structured comparison for students trying to evaluate multiple areas
+- inconsistent user experience across restaurants  
+- limited customization for menu items  
+- reliance on external delivery partners  
 
-### 4. Student.com
+---
+
+### 4. Deliveroo
+
 **Features offered:**
-- student accommodation listings
-- city and university-based search
-- room type and amenity details
-- focused student housing experience
+- fast delivery services  
+- curated restaurant options  
+- order tracking  
+- user-friendly interface  
 
 **Limitations:**
-- may focus more on purpose-built student accommodation
-- may not cover all affordable private rental or shared housing options
-- can be expensive relative to student budgets
+- focuses more on premium restaurants  
+- higher pricing for customers  
+- not always accessible for smaller or local businesses  
 
-### 5. University accommodation portals
+---
+
+### 5. Direct Restaurant Ordering Systems
+
 **Features offered:**
-- official or recommended housing information
-- on-campus and partner accommodation references
-- trusted student-facing content
+- direct communication with customers  
+- no third-party commission fees  
+- full control over pricing and menu  
 
 **Limitations:**
-- often limited in choice
-- may not support detailed comparison across the wider market
-- may not help students explore affordable off-campus alternatives effectively
+- manual order handling (phone/social media)  
+- higher chances of order errors  
+- no automated tracking or payment system  
+- poor scalability and efficiency  
+
+---
 
 ## Market Opportunity
-There is a clear opportunity to create a housing discovery tool specifically designed for international students in Australia.
 
-The current market has useful platforms, but most of them either:
-- target the general rental market
-- focus only on one type of accommodation
-- provide listings without enough student-specific decision support
+There is a clear opportunity to create a dedicated online ordering system for small restaurants like **Rato Ghar**.
 
-International students have specific needs that are not fully addressed by existing solutions. These include:
-- understanding which suburbs are practical for student life
-- comparing travel time to campus
-- balancing affordability with convenience and safety
-- identifying trustworthy and suitable listings quickly
-- narrowing down options without local knowledge
+Current platforms either:
+- charge high commission fees  
+- focus on large-scale operations  
+- do not provide full control to restaurant owners  
+- rely heavily on third-party delivery systems  
 
-In Australia, this opportunity is significant because international students are a major part of the education sector and often relocate into unfamiliar rental markets in cities with high housing pressure.
+Small restaurants often struggle with managing orders efficiently while maintaining profitability.
+
+---
 
 ## Unique Value Proposition
-The unique value proposition of **International Student Housing Finder** is that it is designed specifically for international students, not for the general rental market.
+
+The unique value proposition of **Rato Ghar Online Ordering Platform** is that it is designed specifically for small restaurant operations with a focus on simplicity and control.
 
 It would provide value by combining:
-- housing search tailored to student priorities
-- comparison of listings in a student-friendly format
-- Australian market context for suburbs, transport, and lifestyle factors
-- a simpler and more guided decision-making experience
+- a dedicated ordering system without heavy commission fees  
+- customizable menu and pricing control  
+- simple and clean user interface for customers  
+- efficient order management for restaurant staff  
 
-Unlike broad real estate websites, this platform would focus on helping international students answer practical questions such as:
-- Is this place affordable for my budget?
-- How far is it from campus?
-- Is the area suitable for student living?
-- Are there transport and essential services nearby?
+Unlike large third-party platforms, this system focuses on improving internal efficiency while still providing a smooth customer experience.
+
+---
 
 ## Summary of Unsolved Problems
-Even with existing competitors, these problems remain unsolved:
-- lack of student-specific filtering and comparison
-- limited support for students unfamiliar with Australian cities
-- scattered information across multiple platforms
-- weak guidance for first-time renters arriving from overseas
 
-This creates a strong case for a focused solution like **International Student Housing Finder**.
+Even with existing competitors, these problems remain unsolved:
+- high dependency on third-party platforms  
+- high commission and operational costs  
+- lack of tailored solutions for small restaurants  
+- inefficient manual ordering systems  
+- limited control over branding and customer experience  
+
+This creates a strong case for a focused solution like **Rato Ghar Online Ordering Platform**.
