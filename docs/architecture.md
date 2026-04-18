@@ -5,6 +5,7 @@
 ---
 
 ## 1. Introduction  
+Hi its my practise
 
 ### 1.1 Purpose  
 This document presents the technical architecture of the Rato Ghar Online Ordering Platform. It defines the system structure, components, technologies, and data flow required to support an online food ordering system.
