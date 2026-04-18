@@ -45,25 +45,28 @@ The system can be migrated to microservices (e.g., separate services for authent
 
  ## 4. High-Level Architecture  
 
-
-+----------------------+
-| Frontend (UI) |
-| React.js |
-+----------+-----------+
-|
-v
-+----------------------+
-| Backend API |
-| Node.js / Express |
-+----------+-----------+
-|
-v
-+----------------------+
-| Database |
-| MongoDB |
-+----------------------+
-
-
+             +-------------------------+
+             |       User Browser      |
+             +-----------+-------------+
+                         |
+                         v
+             +-------------------------+
+             |     Frontend (React)    |
+             +-----------+-------------+
+                         |
+                         v
+             +-------------------------+
+             |     Backend (API)       |
+             |   Node.js + Express     |
+             +-----------+-------------+
+                         |
+         +---------------+---------------+
+         |                               |
+         v                               v
+ +----------------+              +----------------------+
+ |   Database     |              | External Services    |
+ |   MongoDB      |              | Payment Gateway      |
+ +----------------+              +----------------------+
 ---
 
 ## 5. System Components  
