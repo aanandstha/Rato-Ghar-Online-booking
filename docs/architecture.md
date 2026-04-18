@@ -1,4 +1,4 @@
-# 🏗️ System Architecture Document  
+#  System Architecture Document  
 ## Rato Ghar Online Ordering Platform  
 ### Week 4 Deliverable  
 
