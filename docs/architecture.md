@@ -84,14 +84,7 @@ The system follows a layered monolithic structure consisting of presentation, ap
 
 ## 5. System Architecture Diagram  
 
-```mermaid
-graph TD
-    User --> Frontend
-    Frontend --> Backend
-    Backend --> Database
-    Backend --> PaymentGateway
-```
-
+![alt text](dfd.drawio.png)
 ---
 
 ## 6. Application Layers  
