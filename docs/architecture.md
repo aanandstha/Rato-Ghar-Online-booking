@@ -1,4 +1,4 @@
-# System Architecture Document  
+# 🏗️ System Architecture Document  
 ## Rato Ghar Online Ordering Platform  
 ### Week 4 Deliverable  
 
@@ -7,162 +7,70 @@
 ## 1. Introduction  
 
 ### 1.1 Purpose  
-This document defines the technical architecture of the Rato Ghar Online Ordering Platform. It outlines the system structure, components, services, and data flow.
+This document presents the technical architecture of the Rato Ghar Online Ordering Platform. It defines the system structure, components, technologies, and data flow required to support an online food ordering system.
 
 ### 1.2 Scope  
-The system allows customers to browse menus, place food orders, and complete payments online while enabling administrators to manage orders and menu items.
+The system allows customers to browse menus, place food orders, and complete payments online, while administrators can manage menu items and orders efficiently.
 
 ---
 
 ## 2. Architecture Style Decision  
 
-### Monolith vs Microservices  
+### 2.1 Monolith vs Microservices  
 
-The system will follow a **Monolithic Architecture** for the initial version.
+The system adopts a **Monolithic Architecture** for the initial implementation.
 
-**Justification:**  
-- Simpler to develop and deploy  
+### 2.2 Justification  
+- Simpler development and deployment  
 - Suitable for small to medium-scale applications  
-- Faster development for prototype/academic project  
-- Easier debugging and testing  
+- Faster development for academic/prototype purposes  
+- Easier debugging, testing, and maintenance  
 
-**Future Consideration:**  
-The system can be migrated to microservices (e.g., separate services for authentication, orders, payments) as it scales.
+### 2.3 Future Scalability  
+As the system grows, it can transition into a **Microservices Architecture**, separating key services such as:
+- Authentication Service  
+- Order Service  
+- Payment Service  
 
 ---
 
 ## 3. Technology Stack  
 
-| Layer          | Technology              |
-|----------------|------------------------|
-| Frontend       | React.js, HTML, CSS    |
-| Backend        | Node.js with Express   |
-| Database       | MongoDB                |
-| Authentication | JWT (JSON Web Tokens)  |
-| Hosting        | AWS / Local Server     |
+| Layer          | Technology                  |
+|----------------|----------------------------|
+| Frontend       | React.js, HTML, CSS        |
+| Backend        | Node.js with Express       |
+| Database       | MongoDB                    |
+| Authentication | JWT (JSON Web Tokens)      |
+| Hosting        | AWS / Local Server         |
 
 ---
 
- ## 4. High-Level Architecture  
+## 4. High-Level Architecture  
 
-             +-------------------------+
-             |       User Browser      |
-             +-----------+-------------+
-                         |
-                         v
-             +-------------------------+
-             |     Frontend (React)    |
-             +-----------+-------------+
-                         |
-                         v
-             +-------------------------+
-             |     Backend (API)       |
-             |   Node.js + Express     |
-             +-----------+-------------+
-                         |
-         +---------------+---------------+
-         |                               |
-         v                               v
- +----------------+              +----------------------+
- |   Database     |              | External Services    |
- |   MongoDB      |              | Payment Gateway      |
- +----------------+              +----------------------+
----
+The system follows a layered monolithic structure consisting of presentation, application, and data layers.
 
-## 5. System Components  
+### 4.1 Components  
 
-### 5.1 Frontend (Presentation Layer)  
-- User interface for customers  
-- Displays menu, cart, and orders  
-- Sends HTTP requests to backend  
+- **Frontend (Client Layer)**  
+  Built using React.js to provide an interactive user interface.
 
-### 5.2 Backend (Application Layer)  
-- Handles business logic  
-- Manages user authentication  
-- Processes orders and payments  
-- Provides REST APIs  
+- **Backend (Application Layer)**  
+  Developed with Node.js and Express to handle business logic and API requests.
 
-### 5.3 Database (Data Layer)  
-- Stores users, orders, menu items  
-- Ensures persistent data storage  
+- **Database (Data Layer)**  
+  MongoDB stores persistent data including users, orders, and menu items.
+
+- **External Services**  
+  Payment gateway integration for secure transaction processing.
 
 ---
 
-## 6. Authentication Design  
+## 5. System Architecture Diagram  
 
-Authentication will be implemented using **JWT (JSON Web Tokens)**.
-
-### Flow:  
-1. User logs in with email and password  
-2. Backend verifies credentials  
-3. JWT token is generated  
-4. Token is sent to frontend  
-5. Frontend stores token (localStorage/session)  
-6. Token is sent with each request for authorization  
-
----
-
-## 7. Data Flow  
-
-1. User interacts with frontend (e.g., selects food)  
-2. Frontend sends request to backend API  
-3. Backend validates request and processes logic  
-4. Backend communicates with database  
-5. Database returns data  
-6. Backend sends response to frontend  
-7. Frontend updates UI  
-
----
-
-## 8. API Design Overview  
-
-| Method | Endpoint   | Description           |
-|--------|------------|-----------------------|
-| POST   | /register  | Create new user       |
-| POST   | /login     | Authenticate user     |
-| GET    | /menu      | Fetch menu items      |
-| POST   | /order     | Place new order       |
-| GET    | /orders    | View user orders      |
-
----
-
-## 9. Security Considerations  
-
-- Password hashing (bcrypt)  
-- JWT-based authentication  
-- HTTPS communication  
-- Input validation and sanitization  
-
----
-
-## 10. Deployment Architecture  
-
-
-[ User Browser ]
-|
-v
-[ Frontend (React App) ]
-|
-v
-[ Backend Server (Node.js) ]
-|
-v
-[ MongoDB Database ]
-
-
----
-
-## 11. Scalability Considerations  
-
-- Modular code structure  
-- Cloud deployment ready  
-- Can scale backend and database independently  
-- Future migration to microservices  
-
----
-
-## 12. Conclusion  
-
-The chosen monolithic architecture provides a simple and efficient foundation for the platform while allowing future scalability and enhancements.
-
----
+```mermaid
+graph TD
+    User --> Frontend
+    Frontend --> Backend
+    Backend --> Database
+    Backend --> PaymentGateway
