@@ -114,120 +114,18 @@ graph TD
 
 ---
 
-## 7. Data Models  
 
-### 7.1 User  
-```json
-{
-  "_id": "ObjectId",
-  "name": "string",
-  "email": "string",
-  "passwordHash": "string",
-  "role": "customer | admin",
-  "createdAt": "Date"
-}
-```
 
-### 7.2 Menu Item  
-```json
-{
-  "_id": "ObjectId",
-  "name": "string",
-  "description": "string",
-  "price": "number",
-  "category": "string",
-  "imageUrl": "string",
-  "isAvailable": "boolean"
-}
-```
+## 7. Authentication and Security  
 
-### 7.3 Order  
-```json
-{
-  "_id": "ObjectId",
-  "userId": "ObjectId",
-  "items": [
-    {
-      "menuItemId": "ObjectId",
-      "quantity": "number",
-      "unitPrice": "number"
-    }
-  ],
-  "totalAmount": "number",
-  "status": "pending | confirmed | preparing | delivered | cancelled",
-  "createdAt": "Date",
-  "updatedAt": "Date"
-}
-```
-
-### 7.4 Payment  
-```json
-{
-  "_id": "ObjectId",
-  "orderId": "ObjectId",
-  "userId": "ObjectId",
-  "amount": "number",
-  "method": "card | cash | online",
-  "status": "pending | success | failed",
-  "transactionId": "string",
-  "createdAt": "Date"
-}
-```
-
----
-
-## 8. API Design  
-
-### 8.1 API Conventions  
-- Base URL: `/api/v1`  
-- All requests and responses use JSON format  
-- Authentication is enforced via Bearer token (JWT) in the `Authorization` header  
-
-### 8.2 Endpoints Overview  
-
-#### Authentication  
-| Method | Endpoint              | Description              | Auth Required |
-|--------|-----------------------|--------------------------|---------------|
-| POST   | `/auth/register`      | Register a new user      | No            |
-| POST   | `/auth/login`         | Login and receive JWT    | No            |
-| POST   | `/auth/logout`        | Invalidate user session  | Yes           |
-
-#### Menu  
-| Method | Endpoint              | Description              | Auth Required |
-|--------|-----------------------|--------------------------|---------------|
-| GET    | `/menu`               | List all menu items      | No            |
-| GET    | `/menu/:id`           | Get a specific menu item | No            |
-| POST   | `/menu`               | Add a new menu item      | Admin         |
-| PUT    | `/menu/:id`           | Update a menu item       | Admin         |
-| DELETE | `/menu/:id`           | Delete a menu item       | Admin         |
-
-#### Orders  
-| Method | Endpoint              | Description              | Auth Required |
-|--------|-----------------------|--------------------------|---------------|
-| POST   | `/orders`             | Place a new order        | Yes           |
-| GET    | `/orders`             | List all orders (admin)  | Admin         |
-| GET    | `/orders/my`          | Get current user's orders| Yes           |
-| GET    | `/orders/:id`         | Get a specific order     | Yes           |
-| PUT    | `/orders/:id/status`  | Update order status      | Admin         |
-
-#### Payments  
-| Method | Endpoint              | Description              | Auth Required |
-|--------|-----------------------|--------------------------|---------------|
-| POST   | `/payments`           | Initiate a payment       | Yes           |
-| GET    | `/payments/:orderId`  | Get payment by order ID  | Yes           |
-
----
-
-## 9. Authentication and Security  
-
-### 9.1 Authentication Flow  
+### 7.1 Authentication Flow  
 1. User submits credentials (email + password) to `/auth/login`  
 2. Backend validates credentials and signs a JWT with a secret key  
 3. Token is returned to the client and stored (e.g., in memory or `httpOnly` cookie)  
 4. Client includes the token in subsequent requests via the `Authorization: Bearer <token>` header  
 5. Backend middleware validates the token on protected routes  
 
-### 9.2 Security Measures  
+### 7.2 Security Measures  
 - Passwords are hashed using **bcrypt** before storage  
 - JWTs have a configurable expiry (e.g., 1 hour for access tokens)  
 - Input validation is applied on all incoming request bodies  
@@ -237,20 +135,20 @@ graph TD
 
 ---
 
-## 10. Deployment Architecture  
+## 8. Deployment Architecture  
 
-### 10.1 Development Environment  
+### 8.1 Development Environment  
 - Local Node.js server  
 - MongoDB running locally or via MongoDB Atlas (free tier)  
 - Frontend served via React development server (`npm start`)  
 
-### 10.2 Production Environment  
+### 8.2 Production Environment  
 - **Backend**: Deployed on AWS EC2 or AWS Elastic Beanstalk  
 - **Frontend**: Hosted on AWS S3 with CloudFront CDN, or via Vercel/Netlify  
 - **Database**: MongoDB Atlas (cloud-hosted)  
 - **Environment Variables**: Stored securely using AWS Secrets Manager or `.env` files not committed to source control  
 
-### 10.3 Deployment Diagram  
+### 8.3 Deployment Diagram  
 
 ```mermaid
 graph LR
@@ -263,7 +161,7 @@ graph LR
 
 ---
 
-## 11. Non-Functional Requirements  
+## 9. Non-Functional Requirements  
 
 | Requirement     | Target                                                    |
 |-----------------|-----------------------------------------------------------|
@@ -276,7 +174,7 @@ graph LR
 
 ---
 
-## 12. Error Handling Strategy  
+## 10. Error Handling Strategy  
 
 - All API errors return a consistent JSON structure:  
 ```json
@@ -292,14 +190,14 @@ graph LR
 
 ---
 
-## 13. Assumptions and Constraints  
+## 11. Assumptions and Constraints  
 
-### 13.1 Assumptions  
+### 11.1 Assumptions  
 - All users have access to a modern web browser  
 - The system targets a single restaurant (single-tenant)  
 - Payment gateway credentials will be provisioned prior to production deployment  
 
-### 13.2 Constraints  
+### 11.2 Constraints  
 - The system is developed within an academic timeframe  
 - Initial deployment may be limited to a local or low-cost cloud environment  
 - No native mobile application is in scope for this phase  
