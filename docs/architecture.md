@@ -43,4 +43,123 @@ The system can be migrated to microservices (e.g., separate services for authent
 
 ---
 
-## 4. High-Level Architecture  
+ ## 4. High-Level Architecture  
+
+
++----------------------+
+| Frontend (UI) |
+| React.js |
++----------+-----------+
+|
+v
++----------------------+
+| Backend API |
+| Node.js / Express |
++----------+-----------+
+|
+v
++----------------------+
+| Database |
+| MongoDB |
++----------------------+
+
+
+---
+
+## 5. System Components  
+
+### 5.1 Frontend (Presentation Layer)  
+- User interface for customers  
+- Displays menu, cart, and orders  
+- Sends HTTP requests to backend  
+
+### 5.2 Backend (Application Layer)  
+- Handles business logic  
+- Manages user authentication  
+- Processes orders and payments  
+- Provides REST APIs  
+
+### 5.3 Database (Data Layer)  
+- Stores users, orders, menu items  
+- Ensures persistent data storage  
+
+---
+
+## 6. Authentication Design  
+
+Authentication will be implemented using **JWT (JSON Web Tokens)**.
+
+### Flow:  
+1. User logs in with email and password  
+2. Backend verifies credentials  
+3. JWT token is generated  
+4. Token is sent to frontend  
+5. Frontend stores token (localStorage/session)  
+6. Token is sent with each request for authorization  
+
+---
+
+## 7. Data Flow  
+
+1. User interacts with frontend (e.g., selects food)  
+2. Frontend sends request to backend API  
+3. Backend validates request and processes logic  
+4. Backend communicates with database  
+5. Database returns data  
+6. Backend sends response to frontend  
+7. Frontend updates UI  
+
+---
+
+## 8. API Design Overview  
+
+| Method | Endpoint   | Description           |
+|--------|------------|-----------------------|
+| POST   | /register  | Create new user       |
+| POST   | /login     | Authenticate user     |
+| GET    | /menu      | Fetch menu items      |
+| POST   | /order     | Place new order       |
+| GET    | /orders    | View user orders      |
+
+---
+
+## 9. Security Considerations  
+
+- Password hashing (bcrypt)  
+- JWT-based authentication  
+- HTTPS communication  
+- Input validation and sanitization  
+
+---
+
+## 10. Deployment Architecture  
+
+
+[ User Browser ]
+|
+v
+[ Frontend (React App) ]
+|
+v
+[ Backend Server (Node.js) ]
+|
+v
+[ MongoDB Database ]
+
+
+---
+
+## 11. Scalability Considerations  
+
+- Modular code structure  
+- Cloud deployment ready  
+- Can scale backend and database independently  
+- Future migration to microservices  
+
+---
+
+## 12. Conclusion  
+
+The chosen monolithic architecture provides a simple and efficient foundation for the platform while allowing future scalability and enhancements.
+
+---
