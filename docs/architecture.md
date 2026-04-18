@@ -12,6 +12,21 @@ This document presents the technical architecture of the Rato Ghar Online Orderi
 ### 1.2 Scope  
 The system allows customers to browse menus, place food orders, and complete payments online, while administrators can manage menu items and orders efficiently.
 
+### 1.3 Intended Audience  
+This document is intended for developers, system architects, project supervisors, and academic assessors involved in the design and evaluation of the platform.
+
+### 1.4 Definitions and Acronyms  
+
+| Term    | Definition                                      |
+|---------|-------------------------------------------------|
+| API     | Application Programming Interface               |
+| JWT     | JSON Web Token                                  |
+| REST    | Representational State Transfer                 |
+| CRUD    | Create, Read, Update, Delete                    |
+| UI      | User Interface                                  |
+| AWS     | Amazon Web Services                             |
+| ODM     | Object Document Mapper                          |
+
 ---
 
 ## 2. Architecture Style Decision  
@@ -53,16 +68,16 @@ The system follows a layered monolithic structure consisting of presentation, ap
 ### 4.1 Components  
 
 - **Frontend (Client Layer)**  
-  Built using React.js to provide an interactive user interface.
+  Built using React.js to provide an interactive user interface. Communicates with the backend via RESTful API calls over HTTP/HTTPS.
 
 - **Backend (Application Layer)**  
-  Developed with Node.js and Express to handle business logic and API requests.
+  Developed with Node.js and Express to handle business logic and API requests. Exposes a REST API that the frontend consumes.
 
 - **Database (Data Layer)**  
-  MongoDB stores persistent data including users, orders, and menu items.
+  MongoDB stores persistent data including users, orders, and menu items. Mongoose is used as the ODM layer for schema definition and validation.
 
 - **External Services**  
-  Payment gateway integration for secure transaction processing.
+  Payment gateway integration (e.g., Stripe or PayPal) for secure transaction processing.
 
 ---
 
@@ -74,3 +89,219 @@ graph TD
     Frontend --> Backend
     Backend --> Database
     Backend --> PaymentGateway
+```
+
+---
+
+## 6. Application Layers  
+
+### 6.1 Presentation Layer (Frontend)  
+- Built with React.js using component-based architecture  
+- Manages routing via React Router  
+- State management handled with React Context API or Redux  
+- Communicates with the backend through Axios HTTP calls  
+
+### 6.2 Application Layer (Backend)  
+- Express.js handles incoming HTTP requests and routes them to appropriate controllers  
+- Middleware pipeline includes: authentication (JWT), input validation, error handling, and logging  
+- Business logic is encapsulated in service modules  
+- RESTful API endpoints follow standard HTTP conventions (GET, POST, PUT, DELETE)  
+
+### 6.3 Data Layer (Database)  
+- MongoDB is used as the primary NoSQL database  
+- Mongoose schemas enforce data structure and validation  
+- Collections: `users`, `menuItems`, `orders`, `payments`  
+
+---
+
+## 7. Data Models  
+
+### 7.1 User  
+```json
+{
+  "_id": "ObjectId",
+  "name": "string",
+  "email": "string",
+  "passwordHash": "string",
+  "role": "customer | admin",
+  "createdAt": "Date"
+}
+```
+
+### 7.2 Menu Item  
+```json
+{
+  "_id": "ObjectId",
+  "name": "string",
+  "description": "string",
+  "price": "number",
+  "category": "string",
+  "imageUrl": "string",
+  "isAvailable": "boolean"
+}
+```
+
+### 7.3 Order  
+```json
+{
+  "_id": "ObjectId",
+  "userId": "ObjectId",
+  "items": [
+    {
+      "menuItemId": "ObjectId",
+      "quantity": "number",
+      "unitPrice": "number"
+    }
+  ],
+  "totalAmount": "number",
+  "status": "pending | confirmed | preparing | delivered | cancelled",
+  "createdAt": "Date",
+  "updatedAt": "Date"
+}
+```
+
+### 7.4 Payment  
+```json
+{
+  "_id": "ObjectId",
+  "orderId": "ObjectId",
+  "userId": "ObjectId",
+  "amount": "number",
+  "method": "card | cash | online",
+  "status": "pending | success | failed",
+  "transactionId": "string",
+  "createdAt": "Date"
+}
+```
+
+---
+
+## 8. API Design  
+
+### 8.1 API Conventions  
+- Base URL: `/api/v1`  
+- All requests and responses use JSON format  
+- Authentication is enforced via Bearer token (JWT) in the `Authorization` header  
+
+### 8.2 Endpoints Overview  
+
+#### Authentication  
+| Method | Endpoint              | Description              | Auth Required |
+|--------|-----------------------|--------------------------|---------------|
+| POST   | `/auth/register`      | Register a new user      | No            |
+| POST   | `/auth/login`         | Login and receive JWT    | No            |
+| POST   | `/auth/logout`        | Invalidate user session  | Yes           |
+
+#### Menu  
+| Method | Endpoint              | Description              | Auth Required |
+|--------|-----------------------|--------------------------|---------------|
+| GET    | `/menu`               | List all menu items      | No            |
+| GET    | `/menu/:id`           | Get a specific menu item | No            |
+| POST   | `/menu`               | Add a new menu item      | Admin         |
+| PUT    | `/menu/:id`           | Update a menu item       | Admin         |
+| DELETE | `/menu/:id`           | Delete a menu item       | Admin         |
+
+#### Orders  
+| Method | Endpoint              | Description              | Auth Required |
+|--------|-----------------------|--------------------------|---------------|
+| POST   | `/orders`             | Place a new order        | Yes           |
+| GET    | `/orders`             | List all orders (admin)  | Admin         |
+| GET    | `/orders/my`          | Get current user's orders| Yes           |
+| GET    | `/orders/:id`         | Get a specific order     | Yes           |
+| PUT    | `/orders/:id/status`  | Update order status      | Admin         |
+
+#### Payments  
+| Method | Endpoint              | Description              | Auth Required |
+|--------|-----------------------|--------------------------|---------------|
+| POST   | `/payments`           | Initiate a payment       | Yes           |
+| GET    | `/payments/:orderId`  | Get payment by order ID  | Yes           |
+
+---
+
+## 9. Authentication and Security  
+
+### 9.1 Authentication Flow  
+1. User submits credentials (email + password) to `/auth/login`  
+2. Backend validates credentials and signs a JWT with a secret key  
+3. Token is returned to the client and stored (e.g., in memory or `httpOnly` cookie)  
+4. Client includes the token in subsequent requests via the `Authorization: Bearer <token>` header  
+5. Backend middleware validates the token on protected routes  
+
+### 9.2 Security Measures  
+- Passwords are hashed using **bcrypt** before storage  
+- JWTs have a configurable expiry (e.g., 1 hour for access tokens)  
+- Input validation is applied on all incoming request bodies  
+- HTTPS is enforced in production deployments  
+- CORS is configured to allow only trusted origins  
+- Rate limiting is applied to authentication endpoints to prevent brute-force attacks  
+
+---
+
+## 10. Deployment Architecture  
+
+### 10.1 Development Environment  
+- Local Node.js server  
+- MongoDB running locally or via MongoDB Atlas (free tier)  
+- Frontend served via React development server (`npm start`)  
+
+### 10.2 Production Environment  
+- **Backend**: Deployed on AWS EC2 or AWS Elastic Beanstalk  
+- **Frontend**: Hosted on AWS S3 with CloudFront CDN, or via Vercel/Netlify  
+- **Database**: MongoDB Atlas (cloud-hosted)  
+- **Environment Variables**: Stored securely using AWS Secrets Manager or `.env` files not committed to source control  
+
+### 10.3 Deployment Diagram  
+
+```mermaid
+graph LR
+    Client -->|HTTPS| CloudFront
+    CloudFront --> S3[S3 - React Frontend]
+    CloudFront -->|API Calls| EC2[EC2 - Node.js Backend]
+    EC2 --> Atlas[MongoDB Atlas]
+    EC2 --> PaymentGateway[Payment Gateway API]
+```
+
+---
+
+## 11. Non-Functional Requirements  
+
+| Requirement     | Target                                                    |
+|-----------------|-----------------------------------------------------------|
+| Performance     | API response time < 300ms under normal load               |
+| Availability    | 99% uptime in production                                  |
+| Scalability     | Horizontally scalable backend via load balancer           |
+| Security        | JWT authentication, HTTPS, bcrypt password hashing        |
+| Maintainability | Modular code structure following MVC pattern              |
+| Usability       | Mobile-responsive frontend design                         |
+
+---
+
+## 12. Error Handling Strategy  
+
+- All API errors return a consistent JSON structure:  
+```json
+{
+  "success": false,
+  "message": "Descriptive error message",
+  "errorCode": "ERROR_CODE"
+}
+```
+- HTTP status codes are used appropriately (200, 201, 400, 401, 403, 404, 500)  
+- A global error handler middleware catches unhandled exceptions in Express  
+- Frontend displays user-friendly error messages for failed API calls  
+
+---
+
+## 13. Assumptions and Constraints  
+
+### 13.1 Assumptions  
+- All users have access to a modern web browser  
+- The system targets a single restaurant (single-tenant)  
+- Payment gateway credentials will be provisioned prior to production deployment  
+
+### 13.2 Constraints  
+- The system is developed within an academic timeframe  
+- Initial deployment may be limited to a local or low-cost cloud environment  
+- No native mobile application is in scope for this phase  
+
+---
