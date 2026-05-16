@@ -1,0 +1,164 @@
+/* assets/css/style.css */
+
+:root {
+    --rato-red: #D32F2F;
+    --rato-dark: #B71C1C;
+    --bg-light: #F8F9FA;
+    --text-main: #333333;
+    --gold: #FFC107;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Navbar */
+.bg-rato {
+    background-color: var(--rato-red) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+.nav-link {
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--gold) !important;
+    transform: translateY(-2px);
+}
+
+.cart-link {
+    position: relative;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    background: white;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-weight: 700;
+    color: var(--rato-dark);
+}
+
+.price-tag {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--rato-red);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--rato-red);
+    border-color: var(--rato-red);
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--rato-dark);
+    border-color: var(--rato-dark);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.4);
+}
+
+.btn-outline-primary {
+    color: var(--rato-red);
+    border-color: var(--rato-red);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--rato-red);
+    border-color: var(--rato-red);
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/hero-bg.jpg') center/cover;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+    margin-top: -2rem;
+    margin-bottom: 3rem;
+}
+
+.hero-section h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+/* Form Styling */
+.form-control {
+    border-radius: 8px;
+    padding: 12px;
+    border: 1px solid #ced4da;
+}
+
+.form-control:focus {
+    border-color: var(--rato-red);
+    box-shadow: 0 0 0 0.2rem rgba(211, 47, 47, 0.25);
+}
+
+/* Custom Table for Cart/Admin */
+.table {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.table th {
+    border-top: none;
+    background-color: var(--rato-red);
+    color: white;
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+}
