@@ -53,16 +53,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmt_items->execute([$order_id, $item['id'], $item['qty'], $item['price']]);
             }
 
-            // Create transaction (Simulated)
-            $payment_status = ($payment_method === 'card') ? 'successful' : 'pending'; // Simulate instant card payment success
+            // Create transaction
+            $payment_status = 'pending';
             $stmt_txn = $pdo->prepare("INSERT INTO transactions (order_id, payment_method, payment_status) VALUES (?, ?, ?)");
             $stmt_txn->execute([$order_id, $payment_method, $payment_status]);
 
             $pdo->commit();
 
-            // Clear cart
-            unset($_SESSION['cart']);
-            $success = "Order placed successfully! Your order number is #$order_id.";
+            if ($payment_method === 'card') {
+                // Redirect to Stripe process page
+                header("Location: process_stripe.php?order_id=$order_id");
+                exit;
+            } else {
+                // Clear cart for Cash on Delivery
+                unset($_SESSION['cart']);
+                $success = "Order placed successfully! Your order number is #$order_id.";
+            }
 
         } catch (Exception $e) {
             $pdo->rollBack();
@@ -132,7 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </div>
                             <div class="custom-control custom-radio">
                                 <input type="radio" id="payCard" name="payment_method" value="card" class="custom-control-input">
-                                <label class="custom-control-label" for="payCard">Credit Card (Simulated)</label>
+                                <label class="custom-control-label" for="payCard">Credit Card (Stripe)</label>
                             </div>
                         </div>
                     </div>
