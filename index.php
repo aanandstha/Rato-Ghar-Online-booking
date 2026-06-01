@@ -35,8 +35,9 @@ $menu_items = $stmt->fetchAll();
                 <?php if($item->category_id == $category->id): ?>
                     <div class="col-md-6 col-lg-3 mb-4">
                         <div class="card h-100">
-                            <!-- Placeholder image fallback -->
-                            <img src="<?= htmlspecialchars($item->image_url ?: 'https://via.placeholder.com/300x200.png?text=Rato+Ghar') ?>" class="card-img-top" alt="<?= htmlspecialchars($item->name) ?>">
+                            <!-- Placeholder image fallback if file doesn't exist -->
+                            <?php $img_src = (file_exists($item->image_url) && !empty($item->image_url)) ? $item->image_url : 'https://via.placeholder.com/300x200.png?text=Rato+Ghar'; ?>
+                            <img src="<?= htmlspecialchars($img_src) ?>" class="card-img-top" alt="<?= htmlspecialchars($item->name) ?>">
                             <div class="card-body d-flex flex-column">
                                 <h5 class="card-title"><?= htmlspecialchars($item->name) ?></h5>
                                 <p class="card-text text-muted flex-grow-1"><?= htmlspecialchars($item->description) ?></p>

@@ -42,7 +42,8 @@ if (!empty($_SESSION['cart'])) {
                                 <tr>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <img src="<?= htmlspecialchars($item->image_url ?: 'https://via.placeholder.com/50') ?>" alt="<?= htmlspecialchars($item->name) ?>" class="img-thumbnail mr-3" style="width: 60px; height: 60px; object-fit: cover;">
+                                            <?php $img_src = (file_exists($item->image_url) && !empty($item->image_url)) ? $item->image_url : 'https://via.placeholder.com/50'; ?>
+                                            <img src="<?= htmlspecialchars($img_src) ?>" alt="<?= htmlspecialchars($item->name) ?>" class="img-thumbnail mr-3" style="width: 60px; height: 60px; object-fit: cover;">
                                             <strong><?= htmlspecialchars($item->name) ?></strong>
                                         </div>
                                     </td>

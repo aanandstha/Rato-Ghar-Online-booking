@@ -66,10 +66,16 @@ INSERT INTO users (username, password, email, role) VALUES
 INSERT INTO menu_categories (name, description) VALUES 
 ('Momo', 'Authentic Nepali Dumplings'),
 ('Dal Bhat', 'Traditional Nepali Meal Sets'),
+('Appetizers', 'Snacks and Starters'),
 ('Beverages', 'Refreshing Drinks');
 
 INSERT INTO menu_items (category_id, name, description, price, image_url) VALUES 
 (1, 'Steamed Chicken Momo', 'Classic steamed chicken momo with spicy tomato achar.', 12.00, 'assets/img/chicken-momo.jpg'),
 (1, 'Jhol Momo', 'Momo served in a tangy and spicy sesame-tomato broth.', 14.50, 'assets/img/jhol-momo.jpg'),
+(1, 'Vegetable Momo', 'Steamed momo filled with fresh seasonal vegetables.', 10.00, 'assets/img/veg-momo.jpg'),
+(1, 'Chilly Momo (C. Momo)', 'Spicy and tangy fried momo tossed in a special sauce.', 15.50, 'assets/img/chilly-momo.jpg'),
 (2, 'Chicken Thakali Thali', 'Traditional Thakali meal with rice, chicken curry, lentils, and pickles.', 22.00, 'assets/img/thakali.jpg'),
-(3, 'Mango Lassi', 'Sweet and creamy mango yogurt drink.', 6.50, 'assets/img/mango-lassi.jpg');
+(2, 'Veg Thakali Thali', 'Traditional Thakali meal with rice, seasonal veg curries, lentils, and pickles.', 18.00, 'assets/img/veg-thakali.jpg'),
+(3, 'Sel Roti', 'Traditional sweet, ring-shaped rice bread/doughnut.', 5.00, 'assets/img/sel-roti.jpg'),
+(3, 'Chatpate', 'Popular street food made of puffed rice, instant noodles, and spices.', 7.00, 'assets/img/chatpate.jpg'),
+(4, 'Mango Lassi', 'Sweet and creamy mango yogurt drink.', 6.50, 'assets/img/mango-lassi.jpg');
