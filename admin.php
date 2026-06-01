@@ -86,7 +86,10 @@ $orders = $stmt->fetchAll();
                                     <span class="badge badge-<?= $badge_class ?> p-2 text-uppercase"><?= $order->status ?></span>
                                 </td>
                                 <td>
-                                    <form action="admin.php" method="POST" class="d-flex">
+                                    <form action="admin.php" method="POST" class="d-flex align-items-center">
+                                        <button type="button" class="btn btn-sm btn-info mr-2" data-toggle="modal" data-target="#orderModal<?= $order->id ?>" style="padding: 4px 10px;">
+                                            <i class="fas fa-eye"></i> View
+                                        </button>
                                         <input type="hidden" name="order_id" value="<?= $order->id ?>">
                                         <select name="status" class="form-control form-control-sm mr-2" style="width: 130px;">
                                             <option value="pending" <?= $order->status == 'pending' ? 'selected' : '' ?>>Pending</option>
@@ -108,5 +111,67 @@ $orders = $stmt->fetchAll();
         </div>
     </div>
 </div>
+
+<!-- Order Modals -->
+<?php foreach ($orders as $order): ?>
+    <?php
+    // Fetch items for this order
+    $stmt_items = $pdo->prepare("
+        SELECT oi.*, mi.name 
+        FROM order_items oi 
+        JOIN menu_items mi ON oi.menu_item_id = mi.id 
+        WHERE oi.order_id = ?
+    ");
+    $stmt_items->execute([$order->id]);
+    $order_items = $stmt_items->fetchAll();
+    ?>
+    <div class="modal fade" id="orderModal<?= $order->id ?>" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel<?= $order->id ?>" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="border-radius: 16px; overflow: hidden;">
+                <div class="modal-header bg-rato text-white">
+                    <h5 class="modal-title" id="orderModalLabel<?= $order->id ?>">Order Details #<?= $order->id ?></h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="p-3 bg-light border-bottom">
+                        <strong>Customer:</strong> <?= htmlspecialchars($order->customer_name) ?><br>
+                        <strong>Phone:</strong> <?= htmlspecialchars($order->customer_phone) ?><br>
+                        <?php if($order->delivery_type === 'delivery'): ?>
+                            <strong>Address:</strong> <?= nl2br(htmlspecialchars($order->delivery_address)) ?>
+                        <?php endif; ?>
+                    </div>
+                    <table class="table table-hover mb-0">
+                        <thead class="bg-light">
+                            <tr>
+                                <th>Item</th>
+                                <th>Qty</th>
+                                <th>Price</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach($order_items as $item): ?>
+                                <tr>
+                                    <td><?= htmlspecialchars($item->name) ?></td>
+                                    <td><?= $item->quantity ?></td>
+                                    <td>$<?= number_format($item->price, 2) ?></td>
+                                    <td>$<?= number_format($item->price * $item->quantity, 2) ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                    <div class="p-3 bg-light text-right border-top">
+                        <h5 class="mb-0">Total: <span class="text-danger">$<?= number_format($order->total_amount, 2) ?></span></h5>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 bg-white">
+                    <button type="button" class="btn btn-secondary rounded-pill px-4" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
 
 <?php require_once 'includes/footer.php'; ?>
